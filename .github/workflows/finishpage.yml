@@ -31,6 +31,9 @@ jobs:
           git checkout website
           git merge main --allow-unrelated-histories
       
+      - name: Dependces
+        run: pip install -r requirements.txt
+      
       - name: Check and update latest finish page
         run: python main.py
 
