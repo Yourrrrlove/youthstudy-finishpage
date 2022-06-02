@@ -1,0 +1,41 @@
+name: 'Auto Update'
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC3:00(北京UTC+8 11:00点)触发任务
+    - cron: '0 3 * * *'
+
+jobs:
+  AutoUpdate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set timezone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Config Git info
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Merge master branch
+        run: |
+          git pull origin
+          git checkout website
+          git merge main --allow-unrelated-histories
+      
+      - name: Check and update latest finish page
+        run: python main.py
+
+      - name: Push changes to origin
+        run: |
+          git add .
+          git commit -m 'Update latest'
+          git push origin
