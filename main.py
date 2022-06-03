@@ -1,6 +1,8 @@
-import requests,json,re,time
+import requests,json,re,time,os
+if not os.path.exists('website'):
+    os.makedirs('website')
 try:
-    with open('latest.txt','r',encoding='utf8') as recordfile:
+    with open('website/latest.txt','r',encoding='utf8') as recordfile:
         record=recordfile.read()
 except:
     record=None
@@ -30,11 +32,11 @@ while True:
         time.sleep(30)
     else:
         print('发现新页面，正在更新')
-        with open(magicid+'.html','w+',encoding='utf8') as htmlfile:
+        with open('website/'+magicid+'.html','w+',encoding='utf8') as htmlfile:
             htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
-        with open('index.html','w+',encoding='utf8') as htmlfile:
+        with open('website/index.html','w+',encoding='utf8') as htmlfile:
             htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
-        with open('latest.txt','w+',encoding='utf8') as recordfile:
+        with open('website/latest.txt','w+',encoding='utf8') as recordfile:
             recordfile.write(magicid)
         print('更新成功！')
         exit()
