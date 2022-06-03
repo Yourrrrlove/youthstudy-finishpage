@@ -26,7 +26,7 @@ while True:
     # print('最新完成图url：https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg')
     if magicid == record:
         print('Waiting...')
-        if time.strftime("%H%M") == '2105':
+        if time.strftime("%H%M") >= '1220':
             print('不等了，爷走')
             exit()
         time.sleep(30)
@@ -38,5 +38,8 @@ while True:
             htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
         with open('website/latest.txt','w+',encoding='utf8') as recordfile:
             recordfile.write(magicid)
+        os.system('git add .')
+        os.system('git commit -m "Update '+respose['data']['entity']['name']+'"')
+        os.system('git push origin')
         print('更新成功！')
         exit()

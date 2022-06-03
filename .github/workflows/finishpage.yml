@@ -37,8 +37,8 @@ jobs:
       - name: Check and update latest finish page
         run: python main.py
 
-      - name: Push changes to origin
-        run: |
-          git add .
-          git commit -m 'Update latest'
-          git push origin
+      # - name: Push changes to origin
+      #   run: |
+      #     git add .
+      #     git commit -m 'Update latest'
+      #     git push origin
