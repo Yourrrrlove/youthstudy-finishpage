@@ -33,9 +33,9 @@ while True:
     else:
         print('发现新页面，正在更新')
         with open('website/'+magicid+'.html','w+',encoding='utf8') as htmlfile:
-            htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
+            htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Pragma" content="no-cache"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
         with open('website/index.html','w+',encoding='utf8') as htmlfile:
-            htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
+            htmlfile.write('<html><head><meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Pragma" content="no-cache"><title>'+respose['data']['entity']['name']+'</title></head><body style="margin: 0;"><div style="background-image: url(https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg); position: absolute; background-size: 100% 100%; width: 100%; height: 100%;"></div></body></html>')
         with open('website/latest.txt','w+',encoding='utf8') as recordfile:
             recordfile.write(magicid)
         os.system('git add .')
