@@ -26,7 +26,7 @@ while True:
     # print('最新完成图url：https://h5.cyol.com/special/daxuexi/'+magicid+'/images/end.jpg')
     if magicid == record:
         print('Waiting...')
-        if time.strftime("%H%M") >= '1220':
+        if time.strftime("%H%M") >= '1300':
             print('不等了，爷走')
             exit()
         time.sleep(30)
