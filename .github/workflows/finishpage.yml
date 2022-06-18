@@ -2,8 +2,8 @@ name: 'Auto Update'
 on:
   workflow_dispatch:
   schedule:
-    # UTC3:00(北京UTC+8 11:00点)触发任务
-    - cron: '0 3 * * *'
+    # UTC3:00(北京UTC+8 10:45)触发任务
+    - cron: '50 2 * * *'
 
 jobs:
   AutoUpdate:
